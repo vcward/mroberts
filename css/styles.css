@@ -69,6 +69,10 @@ a {
   }
 }
 
+.sm-screen-bio {
+  margin-top: 15px;
+}
+
 @media (min-width: 768px) {
   .sm-screen-bio {
     display: none;
