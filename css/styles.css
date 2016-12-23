@@ -1,0 +1,165 @@
+/* GLOBAL STYLES */
+body {
+  font-family: Verdana, "Helvetica Neue", Helvetia, Arial, sans-serif;
+}
+
+a {
+  color: #31708F;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-default {
+}
+
+.navbar-default .navbar-nav li a {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+@media (min-width: 768px) {
+  .navbar-default .navbar-nav .active a {
+    background-color: transparent;
+    border-bottom: 2px solid #31708F;
+  }
+
+  .navbar-default .navbar-nav .active a:hover, .navbar-default .navbar-nav .active a:focus {
+    background-color: transparent;
+  }
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  margin-right: 0px;
+}
+
+.navbar-default .navbar-toggle:hover,  .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #31708F;
+}
+
+.navbar-default .navbar-brand {
+  color: #505050;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.page-header {
+  margin-top: 0px;
+}
+
+/* HOME PAGE */
+@media (max-width: 767px) {
+  .title {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .sm-screen-bio {
+    display: none;
+  }
+}
+
+.about {
+  font-size: 14px;
+  color: #505050;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    display: inline-block;
+  }
+}
+
+/* PUBLICATIONS */
+.wp {
+  margin: 20px;
+}
+
+.wp-link {
+  color: #31708F;
+  font-weight: bold;
+}
+
+.coauthors {
+  color: #4D4D4D;
+  margin: 5px 0px;
+}
+
+.abstract {
+  margin: 10px 0px;
+}
+
+.publication {
+  margin: 10px 20px;
+}
+
+/* Links */
+.two-col-list {
+  -moz-columns: 2 150px;
+  -moz-column-gap: 15px;
+  -webkit-columns: 2 150px;
+  -webkit-column-gap: 15px;
+}
+
+.link-list {
+  padding-left: 1em;
+  margin-left: 0px;
+  margin-bottom: 25px;
+  list-style: none;
+}
+
+.link-list li {
+  break-inside: avoid-column;;
+  -webkit-column-break-inside: avoid;
+  overflow: hidden;
+  padding: 5px 0px;
+}
+
+.link-list li:before {
+  content: "\0BB \020";
+  color: #555555;
+}
+
+.link-list li a {
+  text-decoration: none;
+  margin-left: 5px;
+  color: #555555;
+}
+
+.link-list li a:hover, .link-list li a:focus, .link-list li a:active {
+  text-decoration: none;
+  color: #31708F;
+}
+
+/* COAUTHORS */
+.coauthor-list {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.coauthor-list li {
+  padding: 5px 0px;
+}
