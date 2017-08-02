@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michael J. Roberts</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- NAVIGATION BEGIN -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Michael J. Roberts</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="nav-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./workingpapers.html">Working Papers</a></li>
+                    <li><a href="./outreach.html">Outreach</a></li>
+                    <li><a href="./coauthors.html">Coauthors</a></li>
+                    <li><a href="./links.html">Links</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVIGATION -->
+
+    <!-- BEGIN PAGE CONTENT -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="selection">
+                    <label for="theta">Theta</label>
+                    <select name="theta" id="theta">
+                        <option value="01">01</option>
+                        <option value="05">05</option>
+                        <option value="09">09</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="load">Load</label>
+                    <select name="load" id="load">
+                        <option value="load2007">2007</option>
+                        <option value="load2045">2045</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="ev">EV</label>
+                    <select name="ev" id="ev">
+                        <option value="ev2016">2016</option>
+                        <option value="evhalf">Half</option>
+                        <option value="evfull">Full</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="gen">Gen</label>
+                    <select name="gen" id="gen">
+                        <option value="fossil">Fossil</option>
+                        <option value="free">Free</option>
+                        <option value="rps">RPS</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="cost">Cost</label>
+                    <select name="cost" id="cost">
+                        <option value="current">Current</option>
+                        <option value="future">Future</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="pricing">Pricing</label>
+                    <select name="pricing" id="pricing">
+                        <option value="flat">Flat</option>
+                        <option value="dynamic">Dynamic</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="flex">Flex</label>
+                    <select name="flex" id="flex">
+                        <option value="scen1">Scen 1</option>
+                        <option value="scen2">Scen 2</option>
+                        <option value="scen3">Scen 3</option>
+                    </select>
+                </div>
+                <div id="graph"></div>
+                <div id="stats">
+                    <p><b>Summary Statistics</b></p>
+                </div>
+                <div id="missing">
+                    <p><b>Missing Files</b></p>
+                    <table class="table table-striped">
+                        <thead>
+                            <th>
+                                Theta
+                            </th>
+                            <th>
+                                Load
+                            </th>
+                            <th>
+                                EV
+                            </th>
+                            <th>
+                                Gen
+                            </th>
+                            <th>
+                                Cost
+                            </th>
+                            <th>
+                                Pricing
+                            <th>
+                                Flex
+                            </th>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        const theta = ['01', '05', '09', '2'];
+        const load = ['2007', '2045'];
+        const ev = ['2016', 'half', 'full'];
+        const gen = ['fossil', 'free', 'rps'];
+        const cost = ['current', 'future'];
+        const pricing = ['flat', 'dynamic'];
+        const flex = ['scen1', 'scen2', 'scen3'];
+        theta.forEach((t) => {
+            load.forEach((l) => {
+                ev.forEach((e) => {
+                    gen.forEach((g) => {
+                        cost.forEach((c) => {
+                            pricing.forEach((p) => {
+                                flex.forEach((f) => {
+                                    let fileName = 'power_production/theta='
+                                        + t
+                                        + 'load'
+                                        + l
+                                        + 'ev'
+                                        + e
+                                        + g
+                                        + c
+                                        + p
+                                        + f
+                                        + '.pdf';
+                                    $.get(fileName).done(function() {
+                                    }).fail(function() {
+                                        $('thead').append('<tr><td>'
+                                            + t + '</td><td>'
+                                            + l + '</td><td>'
+                                            + e + '</td><td>'
+                                            + g + '</td><td>'
+                                            + c + '</td><td>'
+                                            + p + '</td><td>'
+                                            + f + '</td></tr>');
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+        let fileName = 'theta=';
+        $('select').each(function(index, s) {
+            fileName += $(s).val();
+        });
+        $('select').change(function() {
+            fileName = 'theta='
+            $('select').each(function(index, s) {
+                fileName += $(s).val();
+            });
+            $('embed').remove();
+            $('#graph').append('<embed src="power_production/' + fileName + '.pdf" width="100%" height="650px" />');
+        })
+        $('#graph').append('<embed src="power_production/' + fileName + '.pdf" width="100%" height="650px" />');
+    </script>
+</body>
+
+</html>
