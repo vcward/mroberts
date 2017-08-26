@@ -40,6 +40,8 @@
                     <li><a href="./outreach.html">Outreach</a></li>
                     <li><a href="./coauthors.html">Coauthors</a></li>
                     <li><a href="./links.html">Links</a></li>
+                    <li><a href="http://uhero.hawaii.edu/145">WEER</a></li>
+                    <li><a href="http://seagrant.soest.hawaii.edu">UH Sea Grant</a></li>
                 </ul>
             </div>
         </div>
@@ -129,9 +131,9 @@
                             </th>
                             <th>
                                 Pricing
-                            <th>
-                                Flex
-                            </th>
+                                <th>
+                                    Flex
+                                </th>
                         </thead>
                     </table>
                 </div>
@@ -169,8 +171,8 @@
                                         + p
                                         + f
                                         + '.pdf';
-                                    $.get(fileName).done(function() {
-                                    }).fail(function() {
+                                    $.get(fileName).done(function () {
+                                    }).fail(function () {
                                         $('thead').append('<tr><td>'
                                             + t + '</td><td>'
                                             + l + '</td><td>'
@@ -188,12 +190,12 @@
             });
         });
         let fileName = 'theta=';
-        $('select').each(function(index, s) {
+        $('select').each(function (index, s) {
             fileName += $(s).val();
         });
-        $('select').change(function() {
+        $('select').change(function () {
             fileName = 'theta='
-            $('select').each(function(index, s) {
+            $('select').each(function (index, s) {
                 fileName += $(s).val();
             });
             $('embed').remove();
