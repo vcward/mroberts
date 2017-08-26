@@ -1,112 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Michael J. Roberts</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/styles.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michael J. Roberts</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/styles.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <!-- NAVIGATION BEGIN -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+<body>
+  <!-- NAVIGATION BEGIN -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
             <span class="sr-only">Toggle Navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Michael J. Roberts</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="nav-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./publications.html">Publications</a></li>
-            <li class="active"><a href="#">Links</a></li>
-            <li><a href="./coauthors.html">Coauthors</a></li>
-          </ul>
-        </div>
+        <a class="navbar-brand" href="#">Michael J. Roberts</a>
       </div>
-    </nav>
-    <!-- END NAVIGATION -->
 
-    <!-- BEGIN PAGE CONTENT -->
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="section">
+      <div class="collapse navbar-collapse" id="nav-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./publications.html">Publications</a></li>
+          <li><a href="./workingpapers.html">Working Papers</a></li>
+          <li><a href="./outreach.html">Outreach</a></li>
+          <li><a href="./coauthors.html">Coauthors</a></li>
+          <li class="active"><a href="#">Links</a></li>
+          <li><a href="http://uhero.hawaii.edu/145">WEER</a></li>
+          <li><a href="http://seagrant.soest.hawaii.edu">UH Sea Grant</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVIGATION -->
+
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="section">
+          <!-- GOVERNING GREEN POWER -->
+          <h4><a href="http://socialsciences.hawaii.edu/conference/govgreen/">Governing Green Power</a></h4>
+          <ul class="link-list"></ul>
+
+          <!-- COLLABORATING UH MANOA DEPARTMENTS -->
+          <h4 class="text-info page-header">Collaborating UH Mānoa Departments</h4>
+          <ul class="link-list">
+            <li><a href="http://www.uhero.hawaii.edu/">UHERO</a></li>
+            <li><a href="http://seagrant.soest.hawaii.edu/">Sea Grant</a></li>
+            <li><a href="http://ee.hawaii.edu/">Electrical Engineering</a></li>
+            <li><a href="https://cms.ctahr.hawaii.edu/nrem/home.aspx">Natural Resources and Environmental Management</a></li>
+            <li><a href="http://www.soest.hawaii.edu/oceanography/">Oceanography</a></li>
+            <li><a href="http://manoa.hawaii.edu/durp/">Urban and Regional Planning</a></li>
+          </ul>
+
           <!-- BLOGS -->
           <h4 class="text-info page-header">Blogs</h4>
-            <ul class="link-list two-col-list">
-              <li><a href="http://www.g-feed.org/">Global Food, Environment and Economic Dynamics</a></li>
-              <li><a href="http://uhero.hawaii.edu/news">UHERO</a></li>
-            </ul>
+          <ul class="link-list">
+            <li><a href="http://www.g-feed.org/">Global Food, Environment and Economic Dynamics</a></li>
+            <li><a href="http://greedgreengrains.blogspot.com/">Greed, Green, and Grains</a></li>
+            <li><a href="http://uhero.hawaii.edu/news">UHERO</a></li>
+          </ul>
 
           <!-- DATA -->
           <h4 class="text-info page-header">Data</h4>
-            <p class="text-info">Agriculture and Environment</p>
-            <ul class="link-list two-col-list">
-              <li><a href="http://dl.dropbox.com/u/25237727/Data/ddayOverAgAreaByMonth.dta.zip">County-level Degree Day Aggregates of Fine-Scale Data</a></li>
-              <li><a href="http://www.columbia.edu/%7Ews2162/dailyData.html">Fine-Scale Weather Data for the US</a></li>
-              <li><a href="http://dl.dropbox.com/u/25237727/Data/HainesHistoricalAgCensus.zip">Michael Haines’ Historical Agricultural Census (183M zipped STATA)</a></li>
-              <li><a href="http://www.nass.usda.gov/Data_and_Statistics/">USDA Agricultural Data</a></li>
-            </ul>
-            <p class="text-info">Finance and Economics</p>
-            <ul class="link-list two-col-list">
-              <li><a href="http://research.stlouisfed.org/fred2/">FRED (excellent data archive of the Federal Reserve)</a></li>
-              <li><a href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French Data Library (stocks and bonds)</a></li>
-              <li><a href="http://www.econ.yale.edu/~shiller/data.htm">Robert Shiller (long-run stocks and home prices)</a></li>
-              <li><a href="http://www.census.gov/compendia/statab/">Statistical Abstract of the United States (basic data on everything)</a></li>
-              <li><a href="http://unstats.un.org/unsd/databases.htm">UN databases</a></li>
-            </ul>
-            <p class="text-info">Software and other Data-Related Resources</p>
-            <ul class="link-list two-col-list">
-              <li><a href="http://www.gapminder.org/">Gapminder</a></li>
-              <li><a href="http://www.gapminder.org/labs/gapminder-agriculture/">Gapminder-Agriculture</a></li>
-              <li><a href="http://www.rstudio.com/">Rstudio</a></li>
-            </ul>
-
-          <!-- NSCU Departments -->
-          <h4 class="text-info page-header">NSCU Departments</h4>
-            <ul class="link-list two-col-list">
-              <li><a href="http://www.ag-econ.ncsu.edu/">Agricultural Economics</a></li>
-              <li><a href="http://www.ncsu.edu/cenrep/">CEnREP</a></li>
-              <li><a href="http://www.cropsci.ncsu.edu/">Crop Science</a></li>
-              <li><a href="http://www.mgt.ncsu.edu/departments_offices/departments/Economics_Department.php">Economics</a></li>
-              <li><a href="http://cnr.ncsu.edu/fer/index.html">Forestry &amp; Environmental Resources</a></li>
-              <li><a href="http://www.ncsu.edu/">NCSU</a></li>
-              <li><a href="http://www.stat.ncsu.edu/">Statistics</a></li>
-            </ul>
+          <p class="text-info">Agriculture and Environment</p>
+          <ul class="link-list">
+            <li><a href="http://dl.dropbox.com/u/25237727/Data/ddayOverAgAreaByMonth.dta.zip">County-level Degree Day Aggregates of Fine-Scale Data (161M STATA)</a></li>
+            <li><a href="http://www.fao.org/faostat/en/#home">FAOSTAT (international agricultural production and trade)</a></li>
+            <li><a href="http://www.columbia.edu/%7Ews2162/dailyData.html">Fine-Scale Weather Data for the US</a></li>
+            <li><a href="https://www.ncdc.noaa.gov/">Global and US Climate Data (NOAA NCDC)</a></li>
+            <li><a href="http://climate.geog.udel.edu/~climate/html_pages/download.html">Global Climate Data (University of Delware)</a></li>
+            <li><a href="http://dl.dropbox.com/u/25237727/Data/HainesHistoricalAgCensus.zip">Michael Haines’ Historical Agricultural Census (183M zipped STATA)</a></li>
+            <li><a href="http://www.nass.usda.gov/Data_and_Statistics/">USDA Agricultural Data</a></li>
+            <li><a href="https://datagateway.nrcs.usda.gov/">USDA Geospatial Data Gateway</a></li>
+          </ul>
+          <p class="text-info">Finance and Economics</p>
+          <ul class="link-list">
+            <li><a href="http://research.stlouisfed.org/fred2/">FRED (excellent data archive of the Federal Reserve)</a></li>
+            <li><a href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French Data Library (stocks and bonds)</a></li>
+            <li><a href="http://www.multpl.com/">multpl.com (key financial statistics, up to the moment, and a whole lot more)</a></li>
+            <li><a href="http://www.econ.yale.edu/~shiller/data.htm">Robert Shiller (long-run stocks and home prices)</a></li>
+            <li><a href="http://www.census.gov/compendia/statab/">Statistical Abstract of the United States (basic data on everything)</a></li>
+            <li><a href="http://unstats.un.org/unsd/databases.htm">UN databases</a></li>
+          </ul>
+          <p class="text-info">Software and other Data-Related Resources</p>
+          <ul class="link-list">
+            <li><a href="http://eml.berkeley.edu/">Berkeley ELSA</a></li>
+            <li><a href="http://www.gapminder.org/">Gapminder</a></li>
+            <li><a href="http://www.gapminder.org/labs/gapminder-agriculture/">Gapminder-Agriculture</a></li>
+            <li><a href="http://www.rstudio.com/">Rstudio</a></li>
+            <li><a href="https://www.r-project.org/">R Project</a></li>
+          </ul>
 
           <!-- BIG IDEAS -->
           <h4 class="text-info page-header">Big Ideas</h4>
+          <ul class="link-list">
+            <li><a href="http://bigthink.com/">Big Think</a></li>
+            <li><a href="https://www.ted.com/">TED</a></li>
+          </ul>
 
           <!-- USEFUL BOOKS AND READINGS -->
           <h4 class="text-info page-header">Useful Books &amp; Readings</h4>
+          <ul class="link-list">
+            <li><a href="http://www2.hawaii.edu/~mjrobert/main/Links_files/DAI_Global_Perspective.pdf">Distortions to Agricultural Incentives, Edited by Kym Anderson</a></li>
+            <li><a href="http://www.mostlyharmlesseconometrics.com/">Mostly Harmless Econometrics By Angrist and Pischke</a></li>
+            <li><a href="https://www.amazon.com/Statistical-Models-Practice-David-Freedman/dp/0521671051">Statistical Models: Theory and Practice By David Freedman</a></li>
+            <li><a href="https://www.amazon.com/Statistics-Third-David-Freedman/dp/0393970833">Statistics  By Freedman, Pisani, and Purves (An undergraduate book that even graduate students can appreciate)</a></li>
+            <li><a href="http://www.williamcronon.net/researching/index.htm">William Cronon’s tips for historical research (also useful for budding economists)</a></li>
+            <li><a href="https://www.amazon.com/Chicago-Writing-Multivariate-Analysis-Publishing/dp/0226527832">Writing about Multivariate Analysis By Jane E. Miller</a></li>
+          </ul>
 
           <!-- ECONOMICS BLOGS -->
           <h4 class="text-info page-header">Economics Blogs</h4>
-          </div>
-        </div>
-        </div>
-    </div>
+          <ul class="link-list">
+            <li><a href="http://andrewgelman.com/">Andrew Gelman  (a statistics blog)</a></li>
+            <li><a href="http://delong.typepad.com/">Brad Delong</a></li>
+            <li><a href="http://www.calculatedriskblog.com/">Calculated Risk</a></li>
+            <li><a href="http://crookedtimber.org/">Crooked Timber</a></li>
+            <li><a href="http://econbrowser.com/">Econbrowser</a></li>
+            <li><a href="http://economistsview.typepad.com/economistsview/">Economist's View</a></li>
+            <li><a href="http://www.env-econ.net/">Environmental Economics</a></li>
+            <li><a href="http://freakonomics.com//">Freakonomics</a></li>
+            <li><a href="http://gregmankiw.blogspot.com/">Greg Mankiw</a></li>
+            <li><a href="http://marginalrevolution.com/">Marginal Revolution</a></li>
+            <li><a href="https://krugman.blogs.nytimes.com/">Paul Krugman</a></li>
+          </ul>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+          <!-- END LIST OF LINKS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
 </html>
