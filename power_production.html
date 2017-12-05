@@ -107,36 +107,6 @@
                     </select>
                 </div>
                 <div id="graph"></div>
-                <div id="stats">
-                    <p><b>Summary Statistics</b></p>
-                </div>
-                <div id="missing">
-                    <p><b>Missing Files</b></p>
-                    <table class="table table-striped">
-                        <thead>
-                            <th>
-                                Theta
-                            </th>
-                            <th>
-                                Load
-                            </th>
-                            <th>
-                                EV
-                            </th>
-                            <th>
-                                Gen
-                            </th>
-                            <th>
-                                Cost
-                            </th>
-                            <th>
-                                Pricing
-                                <th>
-                                    Flex
-                                </th>
-                        </thead>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
@@ -146,49 +116,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-        const theta = ['01', '05', '09', '2'];
-        const load = ['2007', '2045'];
-        const ev = ['2016', 'half', 'full'];
-        const gen = ['fossil', 'free', 'rps'];
-        const cost = ['current', 'future'];
-        const pricing = ['flat', 'dynamic'];
-        const flex = ['scen1', 'scen2', 'scen3'];
-        theta.forEach((t) => {
-            load.forEach((l) => {
-                ev.forEach((e) => {
-                    gen.forEach((g) => {
-                        cost.forEach((c) => {
-                            pricing.forEach((p) => {
-                                flex.forEach((f) => {
-                                    let fileName = 'power_production/theta='
-                                        + t
-                                        + 'load'
-                                        + l
-                                        + 'ev'
-                                        + e
-                                        + g
-                                        + c
-                                        + p
-                                        + f
-                                        + '.pdf';
-                                    $.get(fileName).done(function () {
-                                    }).fail(function () {
-                                        $('thead').append('<tr><td>'
-                                            + t + '</td><td>'
-                                            + l + '</td><td>'
-                                            + e + '</td><td>'
-                                            + g + '</td><td>'
-                                            + c + '</td><td>'
-                                            + p + '</td><td>'
-                                            + f + '</td></tr>');
-                                    });
-                                });
-                            });
-                        });
-                    });
-                });
-            });
-        });
         let fileName = 'theta=';
         $('select').each(function (index, s) {
             fileName += $(s).val();
