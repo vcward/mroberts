@@ -16,6 +16,26 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .selection {
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+        .selection>select {
+            width: 100%;
+        }
+        #graph {
+            margin-bottom: 20px;
+        }
+        #summary-stats>span {
+            color: #31708F;
+            font-weight: bold;
+        }
+        #summary-stats>span>p {
+            color: #000;
+            font-weight: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +43,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                <button type="button" class="navbar-toggle hidden-lg-up pull-left" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -32,7 +52,7 @@
                 <a class="navbar-brand" href="#">Michael J. Roberts</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="nav-collapse">
+            <div class="collapse navbar-collapse navbar-toggleable-md" id="nav-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="../publications.html">Publications</a></li>
@@ -53,39 +73,55 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="selection">
-                    <label for="theta">Theta</label>
+                    <label for="theta">Demand Elasticity
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Overall demand elasticity captures substitution between electricity and all other goods">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </label>
                     <select name="theta" id="theta">
-                        <option value="01">01</option>
-                        <option value="05">05</option>
-                        <option value="09">09</option>
+                        <option value="01">0.1</option>
+                        <option value="05">0.5</option>
+                        <option value="09">0.9</option>
                         <option value="2">2</option>
                     </select>
                 </div>
                 <div class="selection">
-                    <label for="load">Load</label>
+                    <label for="load">Base Load
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Load assumption used as a baseline">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </label>
                     <select name="load" id="load">
                         <option value="load2007">2007</option>
                         <option value="load2045">2045</option>
                     </select>
                 </div>
                 <div class="selection">
-                    <label for="ev">EV</label>
+                    <label for="ev">Electric Vehicle Share
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Electric Vehicle share of total vehicle fleet">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </label>
                     <select name="ev" id="ev">
-                        <option value="ev2016">2016</option>
-                        <option value="evhalf">Half</option>
-                        <option value="evfull">Full</option>
+                        <option value="ev2016">0.5%</option>
+                        <option value="evhalf">50%</option>
+                        <option value="evfull">100%</option>
                     </select>
                 </div>
                 <div class="selection">
-                    <label for="gen">Gen</label>
+                    <label for="gen">Policy Scenario</label>
                     <select name="gen" id="gen">
                         <option value="fossil">Fossil</option>
-                        <option value="free">Free</option>
-                        <option value="rps">RPS</option>
+                        <option value="rps">100% Renewable</option>
+                        <option value="free">Unconstrained</option>
                     </select>
                 </div>
                 <div class="selection">
-                    <label for="cost">Cost</label>
+                    <label for="cost">Input Cost
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Input cost assumption">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </label>
                     <select name="cost" id="cost">
                         <option value="current">Current</option>
                         <option value="future">Future</option>
@@ -99,14 +135,68 @@
                     </select>
                 </div>
                 <div class="selection">
-                    <label for="flex">Flex</label>
+                    <label for="flex">Inter-Hourly Substitution
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Inter-hourly elasticity of substitution captures substitution of electricity consumption between hours in a day.">
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </label>
                     <select name="flex" id="flex">
-                        <option value="scen1">Scen 1</option>
-                        <option value="scen2">Scen 2</option>
-                        <option value="scen3">Scen 3</option>
+                        <option value="scen1">Optimistic</option>
+                        <option value="scen2">Midline</option>
+                        <option value="scen3">Pesimmistic</option>
                     </select>
                 </div>
                 <div id="graph"></div>
+                <div id="summary-stats">
+                    <span class="col-xs-4">
+                        Renewable Share
+                        <p id="rs"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        Mean Price
+                        <p id="mp"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        Mean Quantity
+                        <p id="mq"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        SD Price
+                        <p id="sd"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; CS
+                        <p id="cs"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; EV Charging Cost
+                        <p id="delta-ev"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; PS
+                        <p id="ps"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; Total Surplus
+                        <p id="ts"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; CS Highflexible Customer
+                        <p id="cs-high"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; CS Midflexible Customer
+                        <p id="cs-mid"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        &#916; CS Inflexible Customer
+                        <p id="cs-in"></p>
+                    </span>
+                    <span class="col-xs-4">
+                        Value of Dynamic Pricing
+                        <p id="value"></p>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -115,20 +205,134 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+    <script src="../js/jquery.csv.min.js"></script>
+    <script src="https://use.fontawesome.com/5d5327427a.js"></script>
     <script>
+        // build file name based on options selected from dropdowns
         let fileName = 'theta=';
         $('select').each(function (index, s) {
             fileName += $(s).val();
         });
         $('select').change(function () {
-            fileName = 'theta='
+            fileName = 'theta=';
             $('select').each(function (index, s) {
                 fileName += $(s).val();
             });
+            // Remove existing graph and replace with new file when changing selected options
             $('embed').remove();
-            $('#graph').append('<embed src="./' + fileName + '.pdf" width="100%" height="650px" />');
-        })
-        $('#graph').append('<embed src="./' + fileName + '.pdf" width="100%" height="650px" />');
+            $('#graph').append('<embed src="./' + fileName + '.pdf" width="100%" height="650px" />')
+        });
+        $('#graph').append('<embed src="./' + fileName + '.pdf" width="100%" height="650px" />')
+        // get data for summary stats
+        $.ajax({
+            url: './ALLsummaryCSPS.csv',
+            async: true,
+            success: function (csv) {
+                // use jquery-csv library to parse csv file into arrays
+                data = $.csv.toArrays(csv);
+            },
+            dataType: 'text',
+            complete: function () {
+                const formatData = [];
+                const columns = data[0];
+                data.forEach((line) => {
+                    const lineObj = {};
+                    columns.forEach((column, cIndex) => {
+                        let key = column.replace(/\s+/g, '');
+                        key = key.replace(/-/g, '');
+                        lineObj[key] = line[cIndex];
+                    });
+                    formatData.push(lineObj);
+                });
+                // get values of options selected in the dropdown
+                let selectValues = getSelectValues();
+                // find stats that match the selected values
+                let stats = getStats(formatData, selectValues);
+                displayStats(stats);
+                $('select').change(function () {
+                    // update stats displayed when changing dropdowns
+                    selectValues = getSelectValues();
+                    stats = formatData.find(d => d.theta === selectValues.theta && d.load === selectValues.load && d.ev === selectValues.ev && d.category === selectValues.gen && d.cost === selectValues.cost && d.pricing === selectValues.pricing && d.scen === selectValues.flex);
+                    displayStats(stats);
+                });
+            }
+        });
+        getThetaVal = thetaVal => {
+            if (thetaVal === '01') {
+                return '0.1';
+            }
+            if (thetaVal === '05') {
+                return '0.5';
+            }
+            if (thetaVal === '09') {
+                return '0.9';
+            }
+            return thetaVal;
+        }
+        getGenVal = genVal => {
+            if (genVal === 'free') {
+                return 'unconst.';
+            }
+            if (genVal === 'rps') {
+                return '100% Renewable';
+            }
+            if (genVal === 'fossil') {
+                return 'fossil';
+            }
+        }
+        getFlexVal = flexVal => {
+            if (flexVal === 'scen1') {
+                return 'Optimistic';
+            }
+            if (flexVal === 'scen2') {
+                return 'Moderate';
+            }
+            if (flex === 'scen3') {
+                return 'Pesimmistic';
+            }
+        }
+        getStats = (data, selected) => {
+           return data.find(d => d.theta === selected.theta && d.load === selected.load && d.ev === selected.ev && d.category === selected.gen && d.cost === selected.cost && d.pricing === selected.pricing && d.scen === selected.flex);
+        }
+        getSelectValues = () => {
+            const thetaVal = $('#theta').val();
+            const theta = getThetaVal(thetaVal);
+            const load = $('#load').val().substring(4);
+            const ev = $('#ev').val().substring(2);
+            const genVal = $('#gen').val();
+            const gen = getGenVal(genVal);
+            const cost = $('#cost').val();
+            const pricing = $('#pricing').val();
+            const flexVal = $('#flex').val();
+            const flex = getFlexVal(flexVal);
+            return {
+                theta: theta,
+                load: load,
+                ev: ev,
+                gen: gen,
+                cost: cost,
+                pricing: pricing,
+                flex: flex
+            };
+        }
+        displayStats = stats => {
+            $('#rs').text(stats.Renewable_Share);
+            $('#mp').text(stats.meanprice);
+            $('#mq').text(stats.meanquantity);
+            $('#sd').text(stats.sdprice);
+            $('#cs').text(stats.deltaCS);
+            $('#delta-ev').text(stats.deltaEVchargingcost);
+            $('#ps').text(stats.deltaPS);
+            $('#ts').text(stats.deltatotalsurplus);
+            $('#cs-high').text(stats.deltaCShighflexiblecustomer);
+            $('#cs-mid').text(stats.deltaCSmidflexiblecustomer);
+            $('#cs-in').text(stats.deltaCSinflexiblecustomer);
+            $('#value').text(stats.valueofdynamicpricing);
+        }
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
     </script>
 </body>
 
