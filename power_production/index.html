@@ -21,19 +21,26 @@
             margin-right: 5px;
             margin-bottom: 10px;
         }
+
         .selection>select {
             width: 100%;
         }
+
         #graph {
             margin-bottom: 20px;
         }
-        #summary-stats>span {
+
+        .summary-stats .stat {
+            margin-bottom: 25px;
             color: #31708F;
-            font-weight: bold;
         }
-        #summary-stats>span>p {
+
+        .summary-stats .stat>p {
             color: #000;
-            font-weight: normal;
+        }
+
+        .summary-stats hr {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -124,7 +131,7 @@
                     </label>
                     <select name="cost" id="cost">
                         <option value="current">Current</option>
-                        <option value="future">Future</option>
+                        <option value="future" selected="selected">Future</option>
                     </select>
                 </div>
                 <div class="selection">
@@ -147,55 +154,153 @@
                     </select>
                 </div>
                 <div id="graph"></div>
-                <div id="summary-stats">
-                    <span class="col-xs-4">
-                        Renewable Share
-                        <p id="rs"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        Mean Price
-                        <p id="mp"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        Mean Quantity
-                        <p id="mq"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        SD Price
-                        <p id="sd"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; CS
-                        <p id="cs"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; EV Charging Cost
-                        <p id="delta-ev"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; PS
-                        <p id="ps"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; Total Surplus
-                        <p id="ts"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; CS Highflexible Customer
-                        <p id="cs-high"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; CS Midflexible Customer
-                        <p id="cs-mid"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        &#916; CS Inflexible Customer
-                        <p id="cs-in"></p>
-                    </span>
-                    <span class="col-xs-4">
-                        Value of Dynamic Pricing
-                        <p id="value"></p>
-                    </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 summary-stats">
+                <p>
+                    <center><b>Baseline</b></center>
+                </p>
+                <div class="col-xs-12">
+                    <p>1. Share of renewable energy in total generation mix</p>
+                    <hr>
+                </div>
+                <div class="col-xs-12 stat">
+                    Renewable Share (%)
+                    <p id="base-rs"></p>
+                </div>
+                <div class="col-xs-12 ">
+                    <p>2. Variability in price and quantity</p>
+                    <hr>
+                </div>
+                <div class="col-xs-4 stat">
+                    Mean Price ($)
+                    <p id="base-mp"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    Mean Quantity (MW)
+                    <p id="base-mq"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    SD Price ($)
+                    <p id="base-sd"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>3. Changes in surpluses and Electric Vehicle cost relative to the baseline scenario</p>
+                    <hr>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; CS (%)
+                    <p id="base-cs"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; EV Charging Cost (%)
+                    <p id="base-delta-ev"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; PS (%)
+                    <p id="base-ps"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; Total Surplus (%)
+                    <p id="base-ts"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>4. Changes in consumer surplus for each type of inter-hourly subsitutuion.</p>
+                    <hr>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Highflexible Customer (%)
+                    <p id="base-cs-high"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Midflexible Customer (%)
+                    <p id="base-cs-mid"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Inflexible Customer (%)
+                    <p id="base-cs-in"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>5. Value of having dynamic pricing instead of flat pricing.</p>
+                    <hr>
+                </div>
+                <div class="col-xs-12 stat">
+                    Value of Dynamic Pricing (%)
+                    <p id="base-value"></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 summary-stats">
+                <p>
+                    <center><b>Current Scenario</b></center>
+                </p>
+                <div class="col-xs-12">
+                    <p>1. Share of renewable energy in total generation mix</p>
+                    <hr>
+                </div>
+                <div class="col-xs-12 stat">
+                    Renewable Share (%)
+                    <p id="rs"></p>
+                </div>
+                <div class="col-xs-12 ">
+                    <p>2. Variability in price and quantity</p>
+                    <hr>
+                </div>
+                <div class="col-xs-4 stat">
+                    Mean Price ($)
+                    <p id="mp"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    Mean Quantity (MW)
+                    <p id="mq"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    SD Price ($)
+                    <p id="sd"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>3. Changes in surpluses and Electric Vehicle cost relative to the baseline scenario</p>
+                    <hr>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; CS (%)
+                    <p id="cs"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; EV Charging Cost (%)
+                    <p id="delta-ev"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; PS (%)
+                    <p id="ps"></p>
+                </div>
+                <div class="col-xs-6 stat">
+                    &#916; Total Surplus (%)
+                    <p id="ts"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>4. Changes in consumer surplus for each type of inter-hourly subsitutuion.</p>
+                    <hr>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Highflexible Customer (%)
+                    <p id="cs-high"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Midflexible Customer (%)
+                    <p id="cs-mid"></p>
+                </div>
+                <div class="col-xs-4 stat">
+                    &#916; CS Inflexible Customer (%)
+                    <p id="cs-in"></p>
+                </div>
+                <div class="col-xs-12">
+                    <p>5. Value of having dynamic pricing instead of flat pricing.</p>
+                    <hr>
+                </div>
+                <div class="col-xs-12 stat">
+                    Value of Dynamic Pricing (%)
+                    <p id="value"></p>
                 </div>
             </div>
         </div>
@@ -245,6 +350,9 @@
                     });
                     formatData.push(lineObj);
                 });
+                // get and display stats for the baseline scenario
+                const baselineStats = formatData.find(d => d.theta === '0.1' && d.load === '2007' && d.ev === '2016' && d.category === 'fossil' && d.cost === 'future' && d.pricing === 'flat' && d.scen === 'Optimistic')
+                displayBaselineStats(baselineStats);
                 // get values of options selected in the dropdown
                 let selectValues = getSelectValues();
                 // find stats that match the selected values
@@ -293,7 +401,7 @@
             }
         }
         getStats = (data, selected) => {
-           return data.find(d => d.theta === selected.theta && d.load === selected.load && d.ev === selected.ev && d.category === selected.gen && d.cost === selected.cost && d.pricing === selected.pricing && d.scen === selected.flex);
+            return data.find(d => d.theta === selected.theta && d.load === selected.load && d.ev === selected.ev && d.category === selected.gen && d.cost === selected.cost && d.pricing === selected.pricing && d.scen === selected.flex);
         }
         getSelectValues = () => {
             const thetaVal = $('#theta').val();
@@ -329,6 +437,20 @@
             $('#cs-mid').text(stats.deltaCSmidflexiblecustomer);
             $('#cs-in').text(stats.deltaCSinflexiblecustomer);
             $('#value').text(stats.valueofdynamicpricing);
+        }
+        displayBaselineStats = stats => {
+            $('#base-rs').text(stats.Renewable_Share);
+            $('#base-mp').text(stats.meanprice);
+            $('#base-mq').text(stats.meanquantity);
+            $('#base-sd').text(stats.sdprice);
+            $('#base-cs').text(stats.deltaCS);
+            $('#base-delta-ev').text(stats.deltaEVchargingcost);
+            $('#base-ps').text(stats.deltaPS);
+            $('#base-ts').text(stats.deltatotalsurplus);
+            $('#base-cs-high').text(stats.deltaCShighflexiblecustomer);
+            $('#base-cs-mid').text(stats.deltaCSmidflexiblecustomer);
+            $('#base-cs-in').text(stats.deltaCSinflexiblecustomer);
+            $('#base-value').text(stats.valueofdynamicpricing);
         }
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
