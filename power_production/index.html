@@ -100,7 +100,7 @@
                     </label>
                     <select name="load" id="load">
                         <option value="load2007">2007</option>
-                        <option value="load2045">2045</option>
+                        <option value="load2045" selected="selected">2045</option>
                     </select>
                 </div>
                 <div class="selection">
@@ -111,7 +111,7 @@
                     </label>
                     <select name="ev" id="ev">
                         <option value="ev2016">0.5%</option>
-                        <option value="evhalf">50%</option>
+                        <option value="evhalf" selected="selected">50%</option>
                         <option value="evfull">100%</option>
                     </select>
                 </div>
@@ -149,8 +149,8 @@
                     </label>
                     <select name="flex" id="flex">
                         <option value="scen1">Optimistic</option>
-                        <option value="scen2">Midline</option>
-                        <option value="scen3">Pesimmistic</option>
+                        <option value="scen2" selected="selected">Midline</option>
+                        <option value="scen3">Pessimistic</option>
                     </select>
                 </div>
                 <div id="graph"></div>
@@ -351,7 +351,7 @@
                     formatData.push(lineObj);
                 });
                 // get and display stats for the baseline scenario
-                const baselineStats = formatData.find(d => d.theta === '0.1' && d.load === '2007' && d.ev === '2016' && d.category === 'fossil' && d.cost === 'future' && d.pricing === 'flat' && d.scen === 'Optimistic')
+                const baselineStats = formatData.find(d => d.theta === '0.1' && d.load === '2045' && d.ev === 'half' && d.category === 'fossil' && d.cost === 'future' && d.pricing === 'flat' && d.scen === 'Moderate')
                 displayBaselineStats(baselineStats);
                 // get values of options selected in the dropdown
                 let selectValues = getSelectValues();
@@ -396,8 +396,8 @@
             if (flexVal === 'scen2') {
                 return 'Moderate';
             }
-            if (flex === 'scen3') {
-                return 'Pesimmistic';
+            if (flexVal === 'scen3') {
+                return 'Pessimistic';
             }
         }
         getStats = (data, selected) => {
