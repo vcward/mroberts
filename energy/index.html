@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michael J. Roberts</title>
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../css/styles.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    .selection {
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+
+    .selection>select {
+      width: 100%;
+    }
+
+    #graph {
+      margin-bottom: 20px;
+    }
+
+    .summary-stats .stat {
+      margin-bottom: 25px;
+      color: #31708F;
+    }
+
+    .summary-stats .stat>p {
+      color: #000;
+    }
+
+    .summary-stats hr {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION BEGIN -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle hidden-lg-up pull-left" data-toggle="collapse"
+          data-target="#nav-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Michael J. Roberts</a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-toggleable-md" id="nav-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../workingpapers.html">Working Papers</a></li>
+          <li><a href="../outreach.html">Outreach</a></li>
+          <li><a href="../coauthors.html">Coauthors</a></li>
+          <li><a href="../links.html">Links</a></li>
+          <li><a href="http://uhero.hawaii.edu/145">WEER</a></li>
+          <li><a href="http://seagrant.soest.hawaii.edu">UH Sea Grant</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVIGATION -->
+
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="selection">
+          <label for="eei">Energy Efficiency Improvement
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Energy efficiency improvement">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
+          <select name="eei" id="eei">
+            <option value="00L">0%</option>
+            <option value="10L">10%</option>
+            <option value="20L">20%</option>
+            <option value="30L">30%</option>
+          </select>
+        </div>
+        <div class="selection">
+          <label for="ec">Energy Charge
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="energy charge">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
+          <select name="ec" id="ec">
+            <option value="EC2">High</option>
+            <option value="EC1">Mid</option>
+            <option value="EC3">Low</option>
+          </select>
+        </div>
+        <div class="selection">
+          <label for="nec">Non-Energy Charge
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="non-energy charge">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
+          <select name="nec" id="nec">
+            <option value="NEC0">0% Grid Defection</option>
+            <option value="NEC1">30% Grid Defection</option>
+          </select>
+        </div>
+        <div class="selection">
+          <label for="pv">PV</label>
+          <select name="pv" id="pv">
+            <option value="PV0">0MW</option>
+            <option value="PV1" selected="selected">12MW</option>
+          </select>
+        </div>
+        <div class="selection">
+          <label for="5mw">5MW PV with PPA
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="5MW PV with PPA">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
+          <select name="5mw" id="5mw">
+            <option value="PPA0">No</option>
+            <option value="PPA1" selected="selected">17cents/kWh</option>
+          </select>
+        </div>
+        <div class="selection">
+          <label for="cpp">Cogeneration Power Plant</label>
+          <select name="cpp" id="cpp">
+            <option value="CG0">No</option>
+            <option value="CG1" selected="selected">Yes (no enforcement)</option>
+            <option value="CG2">Yes (matching cooling demand)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12" id="figures">
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+  <script src="../js/jquery.csv.min.js"></script>
+  <script src="https://use.fontawesome.com/5d5327427a.js"></script>
+  <script>
+    const createFilePostfix = () => {
+      let namePostfix = ''
+      $('select').each(function (index, s) {
+        namePostfix += `_${$(s).val()}`;
+      });
+      return namePostfix;
+    };
+
+    const filePrefixes = {
+      csv: 'cap',
+      avgMonthlyBill: 'avg_bill',
+      percGen: 'pie',
+      hourlyLoadHigh: 'LB',
+      hourlyLoadMid: 'LB',
+      hourlyLoadLow: 'LB'
+    };
+
+    const createFileNames = (prefixes, postfix) => {
+      return Object.keys(prefixes).reduce((result, key) => {
+        result[key] = prefixes[key] + postfix;
+        return result;
+      }, {});
+    }
+
+    const fileDisplayOrder = [
+      { file: 'csv', title: 'Capacity Built in Each Period' },
+      { file: 'avgMonthlyBill', title: 'Projected Annual Average Monthly Bill' },
+      { file: 'percGen', title: 'Percentage of each generation sector in 2039' },
+      { file: 'hourlyLoadHigh', title: 'Hourly Load Balance (High-peak day)' },
+      { file: 'hourlyLoadMid', title: 'Hourly Load Balance (Mid-peak day)' },
+      { file: 'hourlyLoadLow', title: 'Hourly Load Balance (Low-peak  day)' }
+    ];
+
+    function createTable(container, csvData) {
+      const table = document.createElement('table');
+      table.classList.add('table')
+      container.appendChild(table);
+      const thead = document.createElement('thead');
+      table.appendChild(thead);
+      const tbody = document.createElement('tbody');
+      table.appendChild(tbody);
+      csvData.forEach((row, index) => {
+        if (index === 0) {
+          row.forEach((cell) => {
+            const th = document.createElement('th');
+            const cellText = document.createTextNode(cell);
+            th.appendChild(cellText)
+            thead.appendChild(th);
+          });
+        }
+        if (index !== 0) {
+          const tr = document.createElement('tr');
+          row.forEach((cell) => {
+            const td = document.createElement('td');
+            const cellText = document.createTextNode(cell);
+            td.appendChild(cellText);
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr)
+        }
+      });
+    }
+
+    function displayNoFileMsg(container) {
+      const pWarning = document.createElement('p');
+      const warning = document.createTextNode('Not available for current selection.')
+      pWarning.appendChild(warning);
+      container.appendChild(pWarning);
+    }
+
+    function removeOldFigures(figureContainer) {
+      while (figureContainer.firstChild) {
+        figureContainer.removeChild(figureContainer.firstChild)
+      }
+    }
+
+    function loadCSVData(fileName, container) {
+      $.get(fileName, function (data, textStatus) {
+        if (textStatus === 'success') {
+          const csvData = $.csv.toArrays(data);
+          createTable(container, csvData);
+        }
+      }).fail(function () {
+        displayNoFileMsg(container);
+      });
+    }
+
+    function embedGraphs(fileName, container) {
+      $.get(fileName, function (data, textStatus) {
+        if (textStatus === 'success') {
+          const embed = document.createElement('embed');
+          embed.setAttribute('src', fileName);
+          embed.setAttribute('height', '650px');
+          embed.setAttribute('width', '100%')
+          container.appendChild(embed);
+        }
+      }).fail(function () {
+        displayNoFileMsg(container);
+      });
+    }
+
+    function displayFigures(files, displayOrder) {
+      const figureContainer = document.getElementById('figures');
+      removeOldFigures(figureContainer);
+      displayOrder.forEach((d) => {
+        const container = document.createElement('div');
+        container.classList.add('col-xs-12');
+        const pTitle = document.createElement('p');
+        const title = document.createTextNode(d.title);
+        pTitle.appendChild(title);
+        container.appendChild(pTitle);
+
+        //container.setAttribute('style', 'display: inline-block;');
+        if (d.file === 'csv') {
+          const csvFileName = `./${files[d.file]}.csv`;
+          loadCSVData(csvFileName, container);
+        }
+        if (d.file !== 'csv') {
+          const pdfFileName = `./${files[d.file]}.pdf`;
+          embedGraphs(pdfFileName, container)
+        }
+        figureContainer.appendChild(container);
+      });
+    }
+
+    const defaultPostfix = createFilePostfix();
+    const defaultFiles = createFileNames(filePrefixes, defaultPostfix);
+    displayFigures(defaultFiles, fileDisplayOrder)
+    $('select').change(function () {
+      const newPostfix = createFilePostfix();
+      const newFiles = createFileNames(filePrefixes, newPostfix);
+      console.log(newFiles)
+      displayFigures(newFiles, fileDisplayOrder)
+    });
+  </script>
+</body>
+
+</html>
