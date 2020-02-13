@@ -93,8 +93,8 @@
           </select>
         </div>
         <div class="selection">
-          <label for="ec">Energy Charge
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="energy charge">
+          <label for="ec">Future Oil price
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Future Oil Price">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -105,40 +105,34 @@
           </select>
         </div>
         <div class="selection">
-          <label for="nec">Non-Energy Charge
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="non-energy charge">
+          <label for="nec">RFP PV Rate
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="RFP PV Rate">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
           <select name="nec" id="nec">
-            <option value="NEC0">0% Grid Defection</option>
-            <option value="NEC1">30% Grid Defection</option>
+            <option value="NEC0">7 cents/kWh</option>
+            <option value="NEC1">10 cents/kWh</option>
+            <option value="NEC2">11 cents/kWh</option>
           </select>
         </div>
         <div class="selection">
-          <label for="pv">PV</label>
+          <label for="pv">Future Utility-Scale PV</label>
           <select name="pv" id="pv">
             <option value="PV0">0MW</option>
-            <option value="PV1" selected="selected">12MW</option>
+            <option value="P" selected="selected">40MW each year after 2023</option>
+            <option value="P1">500MW between 2023-2028</option>
           </select>
         </div>
         <div class="selection">
-          <label for="5mw">5MW PV with PPA
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="5MW PV with PPA">
+          <label for="5mw">Virtural Rider M
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Virtural Rider M">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
           <select name="5mw" id="5mw">
-            <option value="PPA0">No</option>
-            <option value="PPA1" selected="selected">17cents/kWh</option>
-          </select>
-        </div>
-        <div class="selection">
-          <label for="cpp">Cogeneration Power Plant</label>
-          <select name="cpp" id="cpp">
-            <option value="CG0">No</option>
-            <option value="CG1" selected="selected">Yes (no enforcement)</option>
-            <option value="CG2">Yes (matching cooling demand)</option>
+            <option value="PPA0">Yes</option>
+            <option value="PPA1" selected="selected">No</option>
           </select>
         </div>
       </div>
