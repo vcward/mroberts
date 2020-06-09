@@ -1,4 +1,4 @@
-period,Battery,PV,PVPPA,Cogen
+Period,Battery,on-campu PV,on-campus PV with PPA,Cogen
 2020,0.67,0.3,5,0
 2025,1.42,5.3,5,0
 2030,2.42,10.3,5,0
