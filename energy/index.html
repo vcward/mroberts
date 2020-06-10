@@ -82,7 +82,8 @@
       <div class="col-xs-12">
         <div class="selection">
           <label for="eei">Energy Efficiency Improvement
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Energy efficiency improvement">
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            the amount of electricity demand reduction with efficiency improvement by 2039">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -110,7 +111,10 @@
         </div>
         <div class="selection">
           <label for="nec">Non-Energy Charge
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="non-energy charge">
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            the part of the electricity bill from HECO, not included in the Energy Charge.
+            0% grid defection indicates HECO's system demand stays the same as the level in 2018.
+            30% grid defection indicates the system demand will drop by 30% until 2039">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -120,7 +124,13 @@
           </select>
         </div>
         <div class="selection">
-          <label for="pv">on-campus PV</label>
+          <label for="pv">on-campus PV
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+          The model is set to install 5 MW PV by 2025,
+          another 5 MW PV by 2030, and 2 MW PV by 2035 on the Manoa campus">
+            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+          </a>
+        </label>
           <select name="pv" id="pv">
             <option value="PV0">0MW</option>
             <option value="PV1" selected="selected">12MW</option>
@@ -128,7 +138,10 @@
         </div>
         <div class="selection">
           <label for="5mw">on-campus 5MW PV with PPA
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="5MW PV with PPA">
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            With the PPA, the UH can install PV on the campus without paying
+            installation and maintenance costs. But, the UH needs to purchase
+            electricity at the contracted prices, 17 cents/kWh">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -146,7 +159,15 @@
           </select>
         </div>
         <div class="selection">
-          <label for="gt">Green Tariff Program</label>
+          <label for="gt">Green Tariff Program
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            10 MW PV will be installed on UH’s land in West Oahu by 2025.
+            'GT program only' option indicates the green tariff program without
+            a virtual rider M option (VRM). 'GT program with VRM' option indicates
+            the UH decides to add VRM in the green tariff program">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            <a>
+          </label>
           <select name="gt" id="gt">
             <option value="WO0_VRM0" selected="selected">No</option>
             <option value="WO1_VRM0">GT program alone</option>
