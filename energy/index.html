@@ -180,6 +180,17 @@
       <div class="col-xs-12" id="figures">
       </div>
     </div>
+
+    <label for="gt">Green Tariff
+      <a href="#" data-toggle="tooltip" data-placement="bottom" class="left" title="
+      10 MW PV will be installed on UH’s land in West Oahu by 2025.
+      'GT program only' option indicates the green tariff program without
+      a virtual rider M option (VRM). 'GT program with VRM' option indicates
+      the UH decides to add VRM in the green tariff program">
+        <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+      <a>
+    </label>
+
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -215,6 +226,7 @@
       { file: 'billStruc', title: 'Structure of the Bill' },
       { file: 'npv', title: 'Net Present Value' }
     ];
+
 
     const createFileNames = (prefixes, postfix) => {
       return Object.keys(prefixes).reduce((result, key) => {
