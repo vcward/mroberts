@@ -111,12 +111,12 @@
         </div>
         <div class="selection">
           <label for="nec">Non-Energy Charge
-            <p style="text-align:left;"><a href="#" data-toggle="tooltip" title-align:"left" data-placement="bottom" title="
+            <a href="#" data-toggle="tooltip" title-align:"left" data-placement="bottom" title="
             the part of the electricity bill from HECO, not included in the Energy Charge.
             0% grid defection indicates HECO's system demand stays the same as the level in 2018.
             30% grid defection indicates the system demand will drop by 30% until 2039">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-            </a></p>
+            </a>
           </label>
           <select name="nec" id="nec">
             <option value="NEC0">0% Grid Defection</option>
@@ -203,7 +203,8 @@
       avgMonthlyBill: 'avg_bill',
       percGen: 'pie',
       hourlyLoadHigh: 'LB',
-      billStruc: 'bill_struc'
+      billStruc: 'bill_struc',
+      NPV: 'NPV'
     };
 
     const fileDisplayOrder = [
@@ -212,6 +213,7 @@
       { file: 'percGen', title: 'Energy Mix in 2039' },
       { file: 'hourlyLoadHigh', title: 'Hourly Load Balance' },
       { file: 'billStruc', title: 'Structure of the Bill' }
+      { file: 'NPV', title: 'Net Present Value' }
     ];
 
     const createFileNames = (prefixes, postfix) => {
