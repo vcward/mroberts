@@ -81,6 +81,18 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="selection">
+          <label for="em">Future Energy Mix
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            the amount of electricity demand reduction with efficiency improvement by 2039">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
+          <select name="em" id="em">
+            <option value="EM0" selected="selected">PSIP + RFP 900 MW</option>
+            <option value="EM1">Optimized</option>
+          </select>
+        </div>
+        <div class="selection">
           <label for="eei">Energy Efficiency Improvement
             <a href="#" data-toggle="tooltip" data-placement="bottom" title="
             the amount of electricity demand reduction with efficiency improvement by 2039">
@@ -95,7 +107,7 @@
           </select>
         </div>
         <div class="selection">
-          <label for="ec">Energy Charge
+          <label for="ec">Fuel Price
             <a href="#" data-toggle="tooltip" data-placement="bottom" title="The high scenario is based on the EIA forecast.
             The mid scenario is based on crude oil futures prices.
             The low scenario is based on the prices 1SD lower than crude oil futures prices.
