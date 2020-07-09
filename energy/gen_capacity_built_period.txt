@@ -1,0 +1,5 @@
+period	Battery_Storage	Cogen_Power_Plant	Rooftop_PV-0	Rooftop_PV-2020	Rooftop_PV-2020_PPA
+2020	1.21645	6.76	0.3	0	0
+2025	1.21645	6.76	0.3	0	0
+2030	3.23007	6.76	0.3	0.331053	0
+2035	3.23007	6.76	0	7.33007	0
