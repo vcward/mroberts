@@ -83,10 +83,10 @@
         <div class="selection">
           <label for="em">Renewable Transition
             <a href="#" data-toggle="tooltip" data-placement="bottom" title="
-            Indicates HECO's future renewable energy transition scenario. The 'PSIP' option
-            is based on HECO's own transition plan with the 900 MW solar RFP in 2019
-            and an extra 40 MW solar in each year after 2023. The 'optimized' option
-            is based on the results of the optimization model, Switch.">
+            'Renewable Transition’ Indicates HECO's future renewable energy transition scenario.
+            The 'PSIP’ option is based on HECO's own transition plan combined with the 900 MW solar
+            RFP in 2019 and an extra 40 MW solar in each year after 2023. The 'optimized’ option is
+            based on the results of the optimization model, Switch.">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -96,9 +96,13 @@
           </select>
         </div>
         <div class="selection">
-          <label for="eei">Energy Efficiency Improvement
+          <label for="eei">Future Electricity Demand Reduction
             <a href="#" data-toggle="tooltip" data-placement="bottom" title="
-            the amount of electricity demand reduction with efficiency improvement by 2039">
+            'Future Electricity Demand Reduction' indicates the amount of UH's
+            electricity demand reduction with an investment in energy efficiency by 2039.
+            0% indicates the case that UH’s electricity demand is the same as the current level.
+            10%, 20%, and 30% indicate the case that the UH’s electricity demand is gradually reduced
+             by 10%, 20%, and 30% until 2039.">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -111,9 +115,11 @@
         </div>
         <div class="selection">
           <label for="ec">Fuel Price
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="The high scenario is based on the EIA forecast.
-            The mid scenario is based on crude oil futures prices.
-            The low scenario is based on the prices 1SD lower than crude oil futures prices.
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="'Fuel Price' indicates
+            future Brent crude oil price projection. The high scenario is based on the forecast by
+            the US Energy Information Administration. The mid scenario is based on the Brent crude oil
+             futures prices. The low scenario is based on the prices that are 1 standard deviation lower
+              than the Brent crude oil futures prices.
               ">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
@@ -125,11 +131,11 @@
           </select>
         </div>
         <div class="selection">
-          <label for="nec">Non-Energy Charge
+          <label for="nec">Electricity Sales
             <a href="#" data-toggle="tooltip" title-align:"left" data-placement="bottom" title="
-            the part of the electricity bill from HECO, not included in the Energy Charge.
-            0% grid defection indicates HECO's system demand stays the same as the level in 2018.
-            30% grid defection indicates the system demand will drop by 30% until 2039">
+            'Electricity Sales' indicates the projection of HECO’s electricity sales until 2039.
+            0% reduction denotes that HECO’s electricity sales stay the same as the level until 2039.
+            30% reduction indicates the sales will be reduced by 30% until 2039. ">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -141,8 +147,10 @@
         <div class="selection">
           <label for="pv">on-campus PV
           <a href="#" data-toggle="tooltip" data-placement="bottom" title="
-          The model is set to install 5 MW PV by 2025,
-          another 5 MW PV by 2030, and 2 MW PV by 2035 on the Manoa campus">
+          'On-campus PV' indicates the investment plan of PV on the Manoa campus.
+          ‘0 MW’ denotes that the UH will not build any PV on campus. '12 MW’ indicates that
+          the UH will install total 12 MW PV by 2039 with a schedule that 5 MW PV by 2025, 5 MW PV
+          by 2030 and 2 MW PV by 2035.">
             <i class="fa fa-question-circle-o" aria-hidden="true"></i>
           </a>
         </label>
@@ -154,9 +162,9 @@
         <div class="selection">
           <label for="5mw">on-campus 5MW PV with PPA
             <a href="#" data-toggle="tooltip" data-placement="bottom" title="
-            With the PPA, the UH can install PV on the campus without paying
-            installation and maintenance costs. But, the UH needs to purchase
-            electricity at the contracted prices, 17 cents/kWh">
+            'On-campus 5MW PV with PPA' indicates the UH installs PVs on the Manoa campus via a
+            purchasing power agreement (PPA) contract with HECO. ‘PPA: 17 cents/kWh’ indicates that
+            the UH will purchase the generated power at 17 cents/kWh from 2020.">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </a>
           </label>
@@ -166,7 +174,17 @@
           </select>
         </div>
         <div class="selection">
-          <label for="cpp">Cogeneration Plant</label>
+          <label for="cpp">Cogeneration Plant
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="
+            'Cogeneration Plant' indicates the scenario that the UH installs a
+            cogeneration power plant on the Manoa campus. The option 'Yes (without PPA)’
+            denotes the case that the UH installs and operates the cogeneration plant by itself.
+            The option ‘Yes (PPAC: 14 cents/kWh)’ indicates the scenario that a cogeneration plant
+            is installed with a PPA contract with HECO. Under the PPA contract, HECO will install and
+            operate the plant and the UH will purchase power from the HECO at 14 cents/kWh. ">
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>
+          </label>
           <select name="cpp" id="cpp">
             <option value="CG0" selected="selected">No</option>
             <option value="CG1">Yes (no enforcement)</option>
@@ -174,12 +192,13 @@
           </select>
         </div>
         <div class="selection">
-          <label for="gt">Green Tariff
+          <label for="gt">Green Tariff Program
             <a href="#" data-toggle="tooltip" data-placement="bottom" class="left" title="
-            10 MW PV will be installed on UH’s land in West Oahu by 2025.
-            'GT program only' option indicates the green tariff program without
-            a virtual rider M option (VRM). 'GT program with VRM' option indicates
-            the UH decides to add VRM in the green tariff program">
+            'Green Tariff Program' indicates the project of 10 MW PV installation in West Oahu.
+            Through the project, a certain amount of credit will be provided to the UH and reflected on
+            the UH’s monthly electricity bill. The amount of credit will depend on fuel prices,
+            Green Tariff Rate (GTRate), and the inclusion of virtual rider M (VRM). In the ‘GT alone’ option,
+            the VRM is excluded while the ‘GT with VRM’ option includes it. ">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             <a>
           </label>
@@ -198,11 +217,17 @@
       </div>
     </div>
 
-    <label for="NPV"> Net Present Value (NPV)= The NPV indicates the amount of total cost
+    <label for="Net Benefits of the Investment"> Net Benefits of the Investment = 'Net Benefits of the Investment' indicates the amount of total cost
       savings from on and off-campus investments. It is calculated by subtracting the total
-      costs (electricity bill + other installation costs) of the considered scenario from
-      the costs of the status-quo scenario. The NPV of the baseline scenario denotes the
-      saving when the UH decides to implement only the on-campus investment (17 MW PV + battery).
+      costs (electricity bill + other all installation and operating costs) of the considered scenario from
+      the costs of the status-quo scenario.
+
+    <label for="Net Benefits of the Investment"> The status-quo scenario is the scenario that
+        the UH decides not to invest at all in both on and off-campus. Thus, the UH will maintain
+        the current level of electricity consumption and renewable facilities.
+
+    <label for="Net Benefits of the Investment"> The baseline scenario shows the savings when
+          the UH decides to implement only the on-campus investment (17 MW PV + battery).
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -236,7 +261,7 @@
       { file: 'percGen', title: 'Energy Mix in 2039' },
       { file: 'hourlyLoadHigh', title: 'Hourly Load Balance' },
       { file: 'billStruc', title: 'Structure of the Bill' },
-      { file: 'npv', title: 'Net Present Value' }
+      { file: 'npv', title: 'Net Benefits of the Investment' }
     ];
 
 
