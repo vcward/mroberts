@@ -107,10 +107,10 @@
             </a>
           </label>
           <select name="eei" id="eei">
-            <option value="00L">0% reduction</option>
-            <option value="10L">10% reduction</option>
-            <option value="20L">20% reduction</option>
-            <option value="30L">30% reduction</option>
+            <option value="00L">0% Reduction</option>
+            <option value="10L">10% Reduction</option>
+            <option value="20L">20% Reduction</option>
+            <option value="30L">30% Reduction</option>
           </select>
         </div>
         <div class="selection">
@@ -155,8 +155,8 @@
           </a>
         </label>
           <select name="pv" id="pv">
-            <option value="PV0">0MW</option>
-            <option value="PV1" selected="selected">12MW</option>
+            <option value="PV0">0 MW</option>
+            <option value="PV1" selected="selected">12 MW</option>
           </select>
         </div>
         <div class="selection">
@@ -170,7 +170,7 @@
           </label>
           <select name="5mw" id="5mw">
             <option value="PPA0">No</option>
-            <option value="PPA1" selected="selected">17cents/kWh</option>
+            <option value="PPA1" selected="selected">17 cents/kWh</option>
           </select>
         </div>
         <div class="selection">
@@ -179,7 +179,7 @@
             'Cogeneration Plant' indicates the scenario that the UH installs a
             cogeneration power plant on the Manoa campus. The option 'Yes (without PPA)’
             denotes the case that the UH installs and operates the cogeneration plant by itself.
-            The option ‘Yes (PPAC: 14 cents/kWh)’ indicates the scenario that a cogeneration plant
+            The option ‘Yes (PPA: 14 cents/kWh)’ indicates the scenario that a cogeneration plant
             is installed with a PPA contract with HECO. Under the PPA contract, HECO will install and
             operate the plant and the UH will purchase power from the HECO at 14 cents/kWh. ">
               <i class="fa fa-question-circle-o" aria-hidden="true"></i>
@@ -187,8 +187,8 @@
           </label>
           <select name="cpp" id="cpp">
             <option value="CG0" selected="selected">No</option>
-            <option value="CG1">Yes (no enforcement)</option>
-            <option value="CG4">Yes (PPA= 14 cents/kWh)</option>
+            <option value="CG1">Yes (without PPA)</option>
+            <option value="CG4">Yes (PPA: 14 cents/kWh)</option>
           </select>
         </div>
         <div class="selection">
@@ -204,10 +204,10 @@
           </label>
           <select name="gt" id="gt">
             <option value="WO0_VRM0" selected="selected">No</option>
-            <option value="WO1_VRM0">GT alone (GTRate: 10cents/kWh)</option>
-            <option value="WO2_VRM0">GT alone (GTRate: 8cents/kWh)</option>
-            <option value="WO1_VRM1">GT with VRM (GTRate: 10cents/kWh)</option>
-            <option value="WO2_VRM1">GT with VRM (GTRate: 8cents/kWh)</option>
+            <option value="WO1_VRM0">GT alone (GTRate: 10 cents/kWh)</option>
+            <option value="WO2_VRM0">GT alone (GTRate: 8 cents/kWh)</option>
+            <option value="WO1_VRM1">GT with VRM (GTRate: 10 cents/kWh)</option>
+            <option value="WO2_VRM1">GT with VRM (GTRate: 8 cents/kWh)</option>
           </select>
         </div>
       </div>
@@ -220,13 +220,13 @@
     <label for="Net Benefits of the Investment"> <sup>*</sup>Net Benefits of the Investment = 'Net Benefits of the Investment' indicates the amount of total cost
       savings from on and off-campus investments. It is calculated by subtracting the total
       costs (electricity bill + other all installation and operating costs) of the considered scenario from
-      the costs of the status-quo scenario.
+      the costs of the status-quo scenario<sup>**</sup>.
 
-    <label for="Net Benefits of the Investment"> The status-quo scenario is the scenario that
+    <label for="Net Benefits of the Investment"> <sup>**</sup>The status-quo scenario is the scenario that
         the UH decides not to invest at all in both on and off-campus. Thus, the UH will maintain
         the current level of electricity consumption and renewable facilities.
 
-    <label for="Net Benefits of the Investment"> <sup>**</sup>Baseline scenario shows the savings when
+    <label for="Net Benefits of the Investment"> <sup>***</sup>Baseline scenario shows the savings when
           the UH decides to implement only the on-campus investment (17 MW PV + battery).
   </div>
 
